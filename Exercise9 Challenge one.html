@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>User Type Redirect</title>
+</head>
+
+<body>
+
+    <label for="userType">Please select your user type:</label>
+    <input type="text" id="userType">
+    <button onclick="redirectToPage()">Submit</button>
+
+    <script>
+        function redirectToPage() {
+            var userType = document.getElementById("userType").value;
+            if (userType == "Student") {
+                window.location.href = "https://cecilia845.github.io/ICT441/Course%20detail.html";
+            } else if (userType == "Parents") {
+                window.location.href = "https://cecilia845.github.io/ICT441/Home.html";
+            } else {
+                alert("Input not contested, please re-enter")
+            }
+        }
+    </script>
+
+</body>
+</html>
