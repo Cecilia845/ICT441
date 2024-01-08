@@ -92,49 +92,63 @@
          </div>
       </div>
       <!-- //short-->
-          <section id="trainers" class="trainers">
-
-      <div class="container" data-aos="fade-up">
-
-
-
-        <body style="text-align: center;">
-
-          <p>Name</p>
-
-          <form name ="test">
-
-          <input type ="text"name ="textie">
-
-          <p>Age</p>
-
-          <form name ="test">
-
-          <input type ="text"name ="textie">
-
-          <p>phone number</p>
-
-          <form name ="test">
-
-          <input type ="text"name ="textie">
-
-          <p>E-mail</p>
-
-          <form name ="test">
-
-          <input type ="text"name ="textie">
-
-          <p>Address</p>
-
-          <form name ="test">
-
-          <input type ="text"name ="textie">
-
-       </body>
-
-       <div class="text-center"><button type="submit">Submit</button></div>
-
-  </main><!-- End #main -->
+<script type="text/javascript">  
+          function validateForm() {  
+              var name = document.forms["myForm"]["name"].value;  
+              var surname = document.forms["myForm"]["surname"].value;  
+              var gender = document.forms["myForm"]["gender"].value;  
+              var phone = document.forms["myForm"]["phone"].value;  
+              var password = document.forms["myForm"]["password"].value;  
+    
+              // All fields must be filled in. 
+              if (name == "" || surname == "" || phone == "" || password == "" || gender == "") {  
+                  alert("All fields must be filled in.");  
+                  return false;  
+              }  
+    
+              // The phone number must be numeric and require a minimum of 11 digits.
+              if (isNaN(phone) || phone.length < 11) {  
+                  alert("The phone number must be numeric and require a minimum of 11 digits.");  
+                  return false;  
+              }  
+    
+              // The gender must be male or female.  
+              if (gender != "Male" && gender != "Female") {  
+                  alert("The gender must be male or female.");  
+                  return false;  
+              }  
+    
+              // First and last names will only accept letters and reject numbers  
+              if (!/^[a-zA-Z]+$/.test(name) || !/^[a-zA-Z]+$/.test(surname)) {  
+                  alert("First and last names can only contain letters.。");  
+                  return false;  
+              }  
+    
+              // The password must be in the form of a combination of capital letters, special symbols, and numbers, such as J@1234  
+              var passwordPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$/;  
+              if (!passwordPattern.test(password)) {  
+                  alert("The password must contain uppercase letters, special symbols, and numbers, and be between 6-16 characters long.");  
+                  return false;  
+              }  
+    
+              alert("This is a valid entry.");  
+          }  
+      </script>  
+  </head>  
+  <body style="text-align: center;">  
+      <form name="myForm" onsubmit="return validateForm()">  
+          <label for="name">Firstname:</label><br>  
+          <input type="text" id="name" name="name"><br>  
+          <label for="surname">Lastname:</label><br>  
+          <input type="text" id="surname" name="surname"><br>  
+          <label for="gender">Gender:</label><br>  
+          <input type="text" id="gender" name="gender"><br>  
+          <label for="phone">Phone:</label><br>  
+          <input type="text" id="phone" name="phone"><br>  
+          <label for="password">Password:</label><br>  
+          <input type="password" id="password" name="password"><br>  
+          <input type="submit" value="Submit">  
+      </form>  
       <!--Typography-->
       <section class="about-inner py-lg-4 py-md-3 py-sm-3 py-3">
          <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
